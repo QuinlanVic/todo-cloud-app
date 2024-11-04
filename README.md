@@ -1,4 +1,4 @@
-![WorriedScaredGIF](https://github.com/user-attachments/assets/7e0186a4-4dfc-47de-a81d-1a3f44092c38)# This is my TODO Cloud App project for November 2024
+# This is my TODO Cloud App project for November 2024
 I am now doing one project per month :)
 Before this I did a hackathon with my team creating an AI maketing generator 
 & I deployed my Python Flask app via the AWS cloud using ECS, Fargate, ECR, RDS, IAM, and more.
