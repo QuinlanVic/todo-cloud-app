@@ -7,5 +7,3 @@ Thank you for being here
 <br>
 ![](https://media.tenor.com/s8vpWtz04qUAAAAM/willem-dafoe.gif)
 
-![Uploading image.png…]()
-
