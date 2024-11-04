@@ -1,6 +1,5 @@
-# Create an IAM role that allows Lambda functions to execute and access DynamoDB, S3, and other necessary services.
-# Given necessary permissions via Terraform
-# iam.tf
+# Existing IAM Role and Policy Attachments
+
 resource "aws_iam_role" "lambda_execution_role" {
   name = "lambda_execution_role"
   assume_role_policy = jsonencode({
@@ -24,10 +23,10 @@ resource "aws_iam_policy_attachment" "lambda_execution_policy" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
-
 variable "region" {
-  default = "eu-north-1"  # or your specific region
+  default = "eu-north-1"  # Replace with your specific region if needed
 }
+
 # Get the current account ID dynamically
 data "aws_caller_identity" "current" {}
 
@@ -59,4 +58,30 @@ resource "aws_iam_policy" "dynamodb_access_policy" {
 resource "aws_iam_role_policy_attachment" "attach_dynamodb_policy" {
   role       = aws_iam_role.lambda_execution_role.name
   policy_arn = aws_iam_policy.dynamodb_access_policy.arn
+}
+
+# Custom policy for S3 access to a specific bucket
+resource "aws_iam_policy" "s3_access_policy" {
+  name        = "LambdaS3AccessPolicy"
+  description = "Policy to allow Lambda functions to access S3 bucket for image uploads"
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect = "Allow",
+        Action = [
+          "s3:PutObject",
+          "s3:DeleteObject"
+        ],
+        Resource = "arn:aws:s3:::my-todo-app-bucket/*" # can access all objects in the bucket  
+      }
+    ]
+  })
+}
+
+# Attach the custom S3 policy to the Lambda execution role
+resource "aws_iam_role_policy_attachment" "attach_s3_policy" {
+  role       = aws_iam_role.lambda_execution_role.name
+  policy_arn = aws_iam_policy.s3_access_policy.arn
 }

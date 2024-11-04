@@ -3,9 +3,14 @@ import boto3
 from botocore.exceptions import ClientError
 import uuid
 
-# Initialize the DynamoDB client
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('Todos')  # Replace 'Todos' with your DynamoDB table name
+s3 = boto3.client('s3')
+
+# Set your DynamoDB table name and S3 bucket name
+TABLE_NAME = 'Todos'
+BUCKET_NAME = 'your-s3-bucket-name'
+
+table = dynamodb.Table(TABLE_NAME)
 
 def get_todos_handler(event, context):
     try:

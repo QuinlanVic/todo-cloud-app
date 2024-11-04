@@ -3,13 +3,25 @@ import boto3
 from botocore.exceptions import ClientError
 import uuid
 
-# Initialize the DynamoDB client
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('Todos')  # Replace 'Todos' with your DynamoDB table name
+s3 = boto3.client('s3')
+
+# Set your DynamoDB table name and S3 bucket name
+TABLE_NAME = 'Todos'
+BUCKET_NAME = 'your-s3-bucket-name'
+
+table = dynamodb.Table(TABLE_NAME)
 
 def delete_todo_handler(event, context):
     try:
         todo_id = event['pathParameters']['id']
+        # Optional: Delete associated image from S3 if image_url exists
+        response = table.get_item(Key={'id': todo_id})
+        item = response.get('Item', None)
+
+        if item and 'image_url' in item:
+            image_key = item['image_url'].split("/")[-1]  # Extract image key from URL
+            s3.delete_object(Bucket=BUCKET_NAME, Key=image_key)
         
         # Delete the item
         table.delete_item(Key={'id': todo_id})
