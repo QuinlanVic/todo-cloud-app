@@ -9,7 +9,7 @@ resource "aws_lambda_function" "create_todo" {
 
   environment {
     variables = {
-      TABLE_NAME = aws_dynamodb_table.todo_table.name
+      TABLE_NAME = "Todos"
     }
   }
 }
@@ -24,7 +24,7 @@ resource "aws_lambda_function" "get_todos" {
 
   environment {
     variables = {
-      TABLE_NAME = aws_dynamodb_table.todo_table.name
+      TABLE_NAME = "Todos"
     }
   }
 }
@@ -38,7 +38,7 @@ resource "aws_lambda_function" "update_todo" {
 
   environment {
     variables = {
-      TABLE_NAME = aws_dynamodb_table.todo_table.name
+      TABLE_NAME = "Todos"
     }
   }
 }
@@ -52,7 +52,7 @@ resource "aws_lambda_function" "delete_todo" {
 
   environment {
     variables = {
-      TABLE_NAME = aws_dynamodb_table.todo_table.name
+      TABLE_NAME = "Todos"
     }
   }
 }
