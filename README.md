@@ -4,4 +4,4 @@ Before this I did a hackathon with my team creating an AI maketing generator
 & I deployed my Python Flask app via the AWS cloud using ECS, Fargate, ECR, RDS, IAM, and more.
 
 Thank you for being here
-![Uploading WorriedScaredGIF.gif…]()
+https://media.tenor.com/s8vpWtz04qUAAAAM/willem-dafoe.gif 
