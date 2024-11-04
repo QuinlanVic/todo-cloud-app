@@ -5,4 +5,4 @@ Before this I did a hackathon with my team creating an AI maketing generator
 
 Thank you for being here
 <br>
-![](https://www.google.com/url?sa=i&url=https%3A%2F%2Fimgur.com%2Fgallery%2Fwillem-dafoe-looking-up-meme-htstV8U&psig=AOvVaw0Pn6M9Ta-bO7SM1jL5sk6y&ust=1730792264231000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCLjm0eOVwokDFQAAAAAdAAAAABAE)
+![](https://media.tenor.com/s8vpWtz04qUAAAAM/willem-dafoe.gif)
