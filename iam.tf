@@ -16,7 +16,7 @@ resource "aws_iam_role" "lambda_execution_role" {
   })
 }
 
-# Attach the basic Lambda execution policy for CloudWatch logging
+# Attach the basic Lambda execution policy (to the role defined above) for CloudWatch logging
 resource "aws_iam_policy_attachment" "lambda_execution_policy" {
   name       = "lambda_execution_policy"
   roles      = [aws_iam_role.lambda_execution_role.name]
@@ -24,7 +24,7 @@ resource "aws_iam_policy_attachment" "lambda_execution_policy" {
 }
 
 variable "region" {
-  default = "eu-north-1"  # Replace with your specific region if needed
+  default = "eu-north-1"
 }
 
 # Get the current account ID dynamically
@@ -85,3 +85,4 @@ resource "aws_iam_role_policy_attachment" "attach_s3_policy" {
   role       = aws_iam_role.lambda_execution_role.name
   policy_arn = aws_iam_policy.s3_access_policy.arn
 }
+# ATTACH POLICIES TO ROLES

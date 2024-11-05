@@ -7,3 +7,7 @@ node_modules/
 terraform.tfstate
 terraform.tfstate.backup
 terraform.tfvars
+__pycache__/
+bin/
+boto3/
+boto3-
